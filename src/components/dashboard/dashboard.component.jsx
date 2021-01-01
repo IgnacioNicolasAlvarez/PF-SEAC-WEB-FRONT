@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from 'moment';
 
 import './dashboard.styles.css'
 
@@ -26,11 +27,14 @@ class Dashboard extends Component {
         <th>estado</th>
         <th>clasficacion</th>
         <th>polaridad</th>
+        <th />
       </tr>
     );
   }
 
   renderTableData() {
+    Moment.locale('ar');
+
     return this.state.solicitudes.map((solicitud) => {
       const {
         id,
@@ -44,7 +48,7 @@ class Dashboard extends Component {
       return (
         <tr key={id}>
           <td>{id}</td>
-          <td>{fecha}</td>
+          <td>{Moment(fecha).format('L')}</td>
           <td>{descripcion}</td>
           <td>{location}</td>
           <td>{estado}</td>

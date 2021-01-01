@@ -2,6 +2,27 @@
     font-family: monospace;
 }
 
-#solicitudes th{
-    background-color: aqua;
-}
+#solicitudes {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+  }
+  
+  #solicitudes td, #solicitudes th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #solicitudes tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #solicitudes tr:hover {background-color: #ddd;}
+  
+  #solicitudes th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+  }
