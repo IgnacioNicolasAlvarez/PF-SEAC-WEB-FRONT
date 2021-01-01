@@ -11,6 +11,13 @@ class Dashboard extends Component {
     };
   }
 
+  verDetalle ()
+  {
+
+  }
+
+
+
   componentWillMount() {
     fetch("https://seac-backend.azurewebsites.net/solicitudes")
       .then((Response) => Response.json())
@@ -22,19 +29,18 @@ class Dashboard extends Component {
       <tr>
         <th>Id</th>
         <th>Fecha</th>
-        <th>descripcion</th>
-        <th>location</th>
-        <th>estado</th>
-        <th>clasficacion</th>
-        <th>polaridad</th>
-        <th />
+        <th>Descripcion</th>
+        <th>Location</th>
+        <th>Estado</th>
+        <th>Clasficacion</th>
+        <th>Polaridad</th>
+        <th>Operacion</th>
       </tr>
     );
   }
 
   renderTableData() {
     Moment.locale('ar');
-
     return this.state.solicitudes.map((solicitud) => {
       const {
         id,
@@ -54,8 +60,8 @@ class Dashboard extends Component {
           <td>{estado}</td>
           <td>{clasificacion}</td>
           <td>{sentimentalismo}</td>
-          <td>
-            <button>Boton</button>
+          <td className='operacion_verDetalle'>
+            <button onClick={() => this.verDetalle(id)}>Ver Detalle</button>
           </td>
         </tr>
       );
@@ -75,6 +81,7 @@ class Dashboard extends Component {
       </div>
     );
   }
+
 }
 
 export default Dashboard;
