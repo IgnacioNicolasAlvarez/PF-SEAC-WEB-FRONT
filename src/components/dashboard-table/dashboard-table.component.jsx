@@ -19,6 +19,8 @@ const DashBoardTable = ({solicitudes}) => {
     {
       title: "Fecha",
       dataIndex: "fecha",
+      sorter: (a, b) => a.id - b.id,
+      sortDirections: ["descend", "ascend"],
     },
     {
       title: "Direccion",

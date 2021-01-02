@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/layout/layout.component";
 import Dashboard from "./components/dashboard/dashboard.component";
+import InfoSolicitud from "./components/info-solicitud/info-solicitud.component"
 
 class App extends Component {
   constructor() {
@@ -22,7 +23,7 @@ class App extends Component {
               <Dashboard />
             </Route>
             <Route exact path="/info-solicitud/:id">
-              <Dashboard />
+              <InfoSolicitud />
             </Route>
             <Route exact path="/">
               <Dashboard />
