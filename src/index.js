@@ -10,7 +10,6 @@ import App from "./App";
 ReactDOM.render(
   <React.StrictMode>
     <div className='body'>
-      
       <App />
     </div>
   </React.StrictMode>,

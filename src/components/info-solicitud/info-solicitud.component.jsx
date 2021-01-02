@@ -3,6 +3,8 @@ import { Spin, Card } from "antd";
 import { useParams } from "react-router-dom";
 
 import "./info-solicitud.styles.css";
+import Mapa from "../mapa/mapa.component"
+
 
 const url = "https://seac-backend.azurewebsites.net/solicitudes/";
 
@@ -72,6 +74,8 @@ const InfoSolicitud = () => {
           style={{ width: "100px", height: "auto" }}
         />
       </div>
+      <br></br>
+      <Mapa className='Mapa'></Mapa>
     </Card>
   );
 };
