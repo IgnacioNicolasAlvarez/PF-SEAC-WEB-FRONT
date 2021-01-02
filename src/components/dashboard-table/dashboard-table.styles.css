@@ -1,4 +1,9 @@
-.tabla-container{
-    height: 500px;
-    color: red;
+.Tabla {
+    background-color:blueviolet;
+    padding: 8px;
+}
+
+
+.btnVerMas {
+    background-color: aquamarine;
 }

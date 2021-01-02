@@ -1,80 +1,76 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import { Table, Space, Button, Modal } from "antd";
+import moment from "moment";
+import useInterval from "@use-it/interval";
+import { useHistory } from "react-router-dom";
 
 import "./dashboard-table.styles.css";
 
-import { withStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-
-const StyledTableCell = withStyles((theme) => ({
-  head: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  body: {
-    fontSize: 14,
-  },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
 
 const DashBoardTable = ({solicitudes}) => {
+  const history = useHistory();
+  const [open, setOpen] = useState(false);
+
+  const columns = [
+    {
+      title: "Nro",
+      dataIndex: "id",
+      sorter: (a, b) => a.id - b.id,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Fecha",
+      dataIndex: "fecha",
+    },
+    {
+      title: "Direccion",
+      dataIndex: "location",
+    },
+    {
+      title: "Descripcion",
+      dataIndex: "descripcion",
+    },
+
+    {
+      title: "Estado",
+      dataIndex: "estado",
+    },
+    {
+      title: "Tipo",
+      dataIndex: "clasificacion",
+    },
+    {
+      title: "Polaridad",
+      dataIndex: "sentimentalismo",
+    },
+    {
+      title: "",
+      dataIndex: "actions",
+      render: (text, record) => (
+        <Space size="middle">
+          <Button className='btnVerMas' onClick={() => history.push(`/info-solicitud/${record.id}`)}>
+            Ver Mas
+          </Button>
+        </Space>
+      ),
+    },
+  ];
+
   return (
-    <TableContainer className="tabla-container" component={Paper}>
-      <Table className="tabla-container" aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Nro.</StyledTableCell>
-            <StyledTableCell align="right">Fecha</StyledTableCell>
-            <StyledTableCell align="right">Descripcion</StyledTableCell>
-            <StyledTableCell align="right">Location</StyledTableCell>
-            <StyledTableCell align="right">Estado</StyledTableCell>
-            <StyledTableCell align="right">Clasificacion</StyledTableCell>
-            <StyledTableCell align="right">Polaridad</StyledTableCell>
-            <StyledTableCell align="right">Operacion</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {solicitudes.map((solicitud) => (
-            <StyledTableRow key={solicitud.id}>
-              <StyledTableCell component="th" scope="row">
-                {solicitud.id}
-              </StyledTableCell>
-              <StyledTableCell align="right">{solicitud.fecha}</StyledTableCell>
-              <StyledTableCell align="right">
-                {solicitud.descripcion}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {solicitud.location}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {solicitud.estado}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {solicitud.clasificacion}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                {solicitud.sentimentalismo}
-              </StyledTableCell>
-              <StyledTableCell align="right">
-                <button>asd</button>
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <>
+      <Table dataSource={solicitudes} columns={columns} loading={solicitudes.length === 0} />
+      <Modal
+        title="Informacion de solicitud"
+        visible={open}
+        onOk={() => setOpen(false)}
+        onCancel={() => setOpen(false)}
+      ></Modal>
+      <Button style={{ display:"block", top: "-50px", borderColor: "#3A9FF1" }}>
+        <a href="#">
+          Reporte
+        </a>
+      </Button>
+    </>
   );
 };
 
