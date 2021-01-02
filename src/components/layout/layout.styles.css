@@ -1,0 +1,21 @@
+.container_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  background: #3a9ff1;
+}
+
+.container_2 {
+  justify-content: center;
+}
+
+.container_3 {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  color: white;
+  margin-bottom: 50px;
+}

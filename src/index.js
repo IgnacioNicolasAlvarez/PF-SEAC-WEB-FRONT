@@ -10,7 +10,7 @@ import Header from "./components/header/header.component";
 ReactDOM.render(
   <React.StrictMode>
     <div className='body'>
-      <Header />
+      
       <App />
     </div>
   </React.StrictMode>,

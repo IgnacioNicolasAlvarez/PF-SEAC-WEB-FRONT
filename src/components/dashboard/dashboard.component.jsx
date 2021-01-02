@@ -38,14 +38,17 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <h1 id="titulo_tabla">Solicitudes</h1>
-        <SearchBox
-          placeholder="Buscar Descripcion"
-          handleChange={(e) =>
-            this.setState({ filtro_descripcion: e.target.value })
-          }
-        />
+        <div id="encabezado">
+          <SearchBox
+            placeholder="Buscar Descripcion"
+            handleChange={(e) =>
+              this.setState({ filtro_descripcion: e.target.value })
+            }
+          />
+        </div>
+        <div id="dashboard">
           <DashBoardTable solicitudes={solicitudes_filtradas}></DashBoardTable>
+        </div>
       </div>
     );
   }
