@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Table, Space, Button, Modal } from "antd";
-import moment from "moment";
-import useInterval from "@use-it/interval";
 import { useHistory } from "react-router-dom";
 
 import "./dashboard-table.styles.css";
@@ -66,7 +64,7 @@ const DashBoardTable = ({solicitudes}) => {
         onCancel={() => setOpen(false)}
       ></Modal>
       <Button style={{ display:"block", top: "-50px", borderColor: "#3A9FF1" }}>
-        <a href="#">
+        <a href="www.google.com">
           Reporte
         </a>
       </Button>
