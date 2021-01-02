@@ -11,4 +11,3 @@ export const SearchBox = ({ placeholder, handleChange }) => (
   />
 );
 
-export default SearchBox;
