@@ -35,7 +35,7 @@ const InfoSolicitud = () => {
         .catch((error) => console.error("Error:", error))
         .then((response) => console.log("Success:", response));
     }
-  }, [solicitud, url]);
+  }, [solicitud]);
 
   if (!solicitud) {
     return <Spin size="large"></Spin>;
