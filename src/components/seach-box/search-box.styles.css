@@ -1,0 +1,27 @@
+.search {
+    -webkit-appearance: none;
+    border: navy 1px solid;
+    outline: none;
+    padding: 10px;
+    width: 300px;
+    line-height: 30px;
+    margin-bottom: 30px;
+
+}
+
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
+ :-moz-placeholder { 
+    text-align: center;  
+ }
+ 
+ ::-moz-placeholder { 
+    text-align: center;  
+ }
+ 
+ :-ms-input-placeholder {  
+    text-align: center; 
+ }

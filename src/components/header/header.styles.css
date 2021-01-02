@@ -1,0 +1,13 @@
+.navDisplayFlex {
+  display: flex;
+  justify-content: space-between;
+}
+.navbarDisplayFlex {
+  display: flex;
+  justify-content: space-between;
+}
+.linkText {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+}
