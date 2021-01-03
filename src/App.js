@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
-import Layout from "./components/layout/layout.component";
-import Dashboard from "./components/dashboard/dashboard.component";
-import InfoSolicitud from "./components/info-solicitud/info-solicitud.component"
+import  Navbar  from "./components/navbar/navbar.component";
 
 class App extends Component {
   constructor() {
@@ -16,21 +13,8 @@ class App extends Component {
 
   render() {
     return (
-      <Layout>
-        <Router>
-          <Switch>
-            <Route exact path="/dashboard">
-              <Dashboard />
-            </Route>
-            <Route exact path="/info-solicitud/:id">
-              <InfoSolicitud />
-            </Route>
-            <Route exact path="/">
-              <Dashboard />
-            </Route>
-          </Switch>
-        </Router>
-      </Layout>
+      <Navbar />
+   
     );
   }
 }
