@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Spin, Card } from "antd";
 import { useParams } from "react-router-dom";
+import { Image } from "antd";
 
 import "./info-solicitud.styles.css";
-import Mapa from "../mapa/mapa.component"
-
+import Mapa from "../mapa/mapa.component";
 
 const url = "https://seac-backend.azurewebsites.net/solicitudes/";
 
 const InfoSolicitud = () => {
   const [solicitud, setSolicitud] = useState();
   const { id } = useParams();
-  
+
   useEffect(() => {
     fetch(url + id)
       .then((res) => res.json())
@@ -67,15 +67,15 @@ const InfoSolicitud = () => {
         <b>Fecha: </b>
         {solicitud.fecha}
       </p>
-      <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
-        <img
+      <div className="contenedor_imagen">
+        <Image
           alt="solicitudImagen"
+          className="imagen"
           src={`data:image/png;base64,${solicitud.imagen}`}
-          style={{ width: "100px", height: "auto" }}
         />
       </div>
       <br></br>
-      <Mapa className='Mapa'></Mapa>
+      <Mapa className="Mapa"></Mapa>
     </Card>
   );
 };

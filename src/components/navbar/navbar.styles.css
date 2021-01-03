@@ -1,16 +1,16 @@
-.sider {
-    overflow: auto;
-    height: 100vh;
-    position: fixed;
-    left: 0;
+.layout_top {
+  min-height: 100vh;
 }
 
+.main_content {
+  margin: 16px 16px 16px 16px;
+}
 
-#components-layout-demo-fixed-sider .logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 16px;
-  }
-  .site-layout .site-layout-background {
-    background: #fff;
-  }
+.site-layout-background {
+  padding: 24;
+  min-height: 360;
+}
+
+.footer {
+  text-align: center;
+}

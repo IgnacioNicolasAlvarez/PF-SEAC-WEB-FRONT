@@ -2,3 +2,13 @@
   width: 80%;
   margin: auto;
 }
+.contenedor_imagen {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.imagen {
+  width: 100px;
+  height: auto;
+}

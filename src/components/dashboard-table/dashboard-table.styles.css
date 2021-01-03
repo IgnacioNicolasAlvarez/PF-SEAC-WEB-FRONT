@@ -1,6 +1,5 @@
-.Tabla {
-    background-color:blueviolet;
-    padding: 8px;
+.tabla > th {
+    background-color: red;
 }
 
 
