@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Layout, Menu } from "antd";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { TableOutlined } from "@ant-design/icons";
-
+import { TableOutlined, HomeOutlined, BarChartOutlined } from "@ant-design/icons";
 import Dashboard from "../dashboard/dashboard.component";
 import InfoSolicitud from "../info-solicitud/info-solicitud.component";
+import Home from "../home/home.component";
 
 import "./navbar.styles.css";
 
@@ -30,8 +30,16 @@ class Navbar extends Component {
 
             <Switch>
               <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-                <Menu.Item key="1" icon={<TableOutlined />}>
+                
+               <Menu.Item key="1" icon={<HomeOutlined />}>
+                  <Link to="/home">Home</Link>
+                </Menu.Item>
+                <Menu.Item key="2" icon={<TableOutlined />}>
                   <Link to="/dashboard">Mensajes Generales</Link>
+                </Menu.Item>
+
+                <Menu.Item key="3" icon={<BarChartOutlined />}>
+                  <Link to="/dashboard">Graficos</Link>
                 </Menu.Item>
               </Menu>
             </Switch>
@@ -43,8 +51,9 @@ class Navbar extends Component {
             <Content className="main_content">
               <div className="site-layout-background">
                 <Switch>
-                  <Route exact path="/">
-                    <Dashboard></Dashboard>
+                 
+                  <Route exact path="/home">
+                    <Home></Home>
                   </Route>
                   <Route exact path="/dashboard">
                     <Dashboard></Dashboard>
