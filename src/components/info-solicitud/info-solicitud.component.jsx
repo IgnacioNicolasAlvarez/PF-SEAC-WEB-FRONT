@@ -6,7 +6,8 @@ import { Image } from "antd";
 import "./info-solicitud.styles.css";
 import Mapa from "../mapa/mapa.component";
 
-const url = "https://seac-backend.azurewebsites.net/solicitudes/";
+//const url = "https://seac-backend.azurewebsites.net/solicitudes/";
+const url = "https://radiant-depths-00840.herokuapp.com/solicitudes/";
 
 const InfoSolicitud = () => {
   const [solicitud, setSolicitud] = useState();
@@ -75,7 +76,7 @@ const InfoSolicitud = () => {
         />
       </div>
       <br></br>
-      <Mapa className="Mapa"></Mapa>
+      <Mapa className="Mapa" lat={solicitud.lat} long={solicitud.long}></Mapa>
     </Card>
   );
 };

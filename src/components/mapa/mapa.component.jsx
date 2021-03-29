@@ -3,8 +3,8 @@ import React from "react";
 
 import "./mapa.styles.css";
 
-const Mapa = () => {
-  const position = [-26.8215, -65.2092];
+const Mapa = ({lat, long})=> {
+  const position = [lat, long];
 
   return (
     <MapContainer center={position} zoom={12} scrollWheelZoom={false}>

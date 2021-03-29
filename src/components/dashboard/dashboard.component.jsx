@@ -22,7 +22,8 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    fetch("https://seac-backend.azurewebsites.net/solicitudes")
+    //fetch("https://seac-backend.azurewebsites.net/solicitudes")
+    fetch("https://radiant-depths-00840.herokuapp.com/solicitudes/")
       .then((Response) => Response.json())
       .then((data) => data.map((i) => formatear_fecha(i)))
       .then((solicitudes) => this.setState({ solicitudes: solicitudes }));
