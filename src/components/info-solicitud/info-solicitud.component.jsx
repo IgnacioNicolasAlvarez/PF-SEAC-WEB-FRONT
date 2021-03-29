@@ -76,7 +76,7 @@ const InfoSolicitud = () => {
         />
       </div>
       <br></br>
-      <Mapa className="Mapa" lat={solicitud.lat} long={solicitud.long}></Mapa>
+      <Mapa className="Mapa" lat={solicitud.lat} long={solicitud.long} direccion={solicitud.location}></Mapa>
     </Card>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 
 import "./mapa.styles.css";
 
-const Mapa = ({lat, long})=> {
+const Mapa = ({lat, long, direccion})=> {
   const position = [lat, long];
 
   return (
@@ -14,7 +14,7 @@ const Mapa = ({lat, long})=> {
       />
       <Marker position={position}>
         <Popup>
-          Un popup
+          {direccion}
         </Popup>
       </Marker>
     </MapContainer>
