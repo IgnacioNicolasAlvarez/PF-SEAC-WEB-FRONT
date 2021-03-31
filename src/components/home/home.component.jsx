@@ -5,21 +5,14 @@ import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import moment from "moment";
 
 const Home = () => {
-  function diaSemana() {
-    var x = String(moment().format("DD/MM/YYYY"));
-    let date = new Date(x.replace(/-+/g, "/"));
 
-    let options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    return (date.toLocaleDateString("es-MX", options));
+  function get_dia_actual() {
+    var x = moment().format("DD/MM/YYYY");
+    return (x);
   }
   return (
     <div className="site-statistic-demo-card">
-      <h1>Resumen Estadístico: {diaSemana()}</h1>
+      <h1>Resumen Estadístico Diario: {get_dia_actual()}</h1>
       <Row gutter={16}>
         <Col span={8}>
           <Card>

@@ -72,7 +72,7 @@ const InfoSolicitud = () => {
         <Image
           alt="solicitudImagen"
           className="imagen"
-          src={`data:image/png;base64,${solicitud.imagen}`}
+          src={solicitud.imagen}
         />
       </div>
       <br></br>
