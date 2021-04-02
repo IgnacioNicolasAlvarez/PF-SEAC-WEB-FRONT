@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Statistic, Card, Row, Col } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import moment from "moment";
-import Mapa from "../mapa/mapa_general.component";
+import Mapa_general from "../mapa/mapa_general.component";
 
 const url = "https://radiant-depths-00840.herokuapp.com/get_estadistica_diaria";
 
@@ -16,6 +16,7 @@ class Home extends Component {
     super();
     this.state = {
       estadisticas_: [],
+      localizaciones_: [],
     };
   }
 
@@ -26,16 +27,16 @@ class Home extends Component {
         this.setState({ estadisticas_: estadisticas });
       });
     
-      fetch(url)
+      fetch("https://radiant-depths-00840.herokuapp.com/get_ubicacion_diaria")
       .then((Response) => Response.json())
-      .then((estadisticas) => {
-        this.setState({ estadisticas_: estadisticas });
+      .then((localizaciones) => {
+        this.setState({ localizaciones_: localizaciones });
       });
   }
 
   render() {
-    const { estadisticas_ } = this.state;
-  
+    const { estadisticas_, localizaciones_ } = this.state;
+
     const e_filtradas_P  = estadisticas_.filter((e)  => e.sentimentalismo.includes('POSITIVO'));
     const e_filtradas_N  = estadisticas_.filter((e)  => e.sentimentalismo.includes('NEGATIVO'));
     const e_filtradas_NE = estadisticas_.filter((e)  => e.sentimentalismo.includes('NEUTRO'));
@@ -86,7 +87,7 @@ class Home extends Component {
             </Card>
           </Col>
         </Row>
-      
+        <Mapa_general className="Mapa" lat_long_direcc={localizaciones_}></Mapa_general>
       </div>
 
     );
@@ -94,5 +95,3 @@ class Home extends Component {
 }
 
 export default Home;
-
-///   <Mapa_general className="Mapa"></Mapa_general>
