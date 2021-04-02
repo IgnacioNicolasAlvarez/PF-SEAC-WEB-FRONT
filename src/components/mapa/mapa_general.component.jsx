@@ -4,7 +4,7 @@ import React from "react";
 
 import "./mapa.styles.css";
 
-const Mapa_general = ({lat_long_direcc})=> {
+const MapaGeneral = ({lat_long_direcc})=> {
 
     const positivo_icon = new L.Icon({
         iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -77,4 +77,4 @@ const Mapa_general = ({lat_long_direcc})=> {
     </div>);
 };
 
-export default Mapa_general;
+export default MapaGeneral;

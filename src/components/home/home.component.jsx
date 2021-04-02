@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Statistic, Card, Row, Col } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import moment from "moment";
-import Mapa_general from "../mapa/mapa_general.component";
+import MapaGeneral from "../mapa/mapa_general.component";
 
 const url = "https://radiant-depths-00840.herokuapp.com/get_estadistica_diaria";
 
@@ -87,7 +87,7 @@ class Home extends Component {
             </Card>
           </Col>
         </Row>
-        <Mapa_general className="Mapa" lat_long_direcc={localizaciones_}></Mapa_general>
+        <MapaGeneral className="Mapa" lat_long_direcc={localizaciones_}></MapaGeneral>
       </div>
 
     );
