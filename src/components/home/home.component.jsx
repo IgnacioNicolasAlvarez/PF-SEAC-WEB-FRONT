@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-
 import { Statistic, Card, Row, Col } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 import moment from "moment";
+import Mapa from "../mapa/mapa_general.component";
 
 const url = "https://radiant-depths-00840.herokuapp.com/get_estadistica_diaria";
 
@@ -15,19 +15,35 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      estadisticas: [],
+      estadisticas_: [],
     };
   }
 
   componentDidMount() {
     fetch(url)
       .then((Response) => Response.json())
-      .then((estadisticas) => this.setState({ estadisticas: estadisticas }));
+      .then((estadisticas) => {
+        this.setState({ estadisticas_: estadisticas });
+      });
+    
+      fetch(url)
+      .then((Response) => Response.json())
+      .then((estadisticas) => {
+        this.setState({ estadisticas_: estadisticas });
+      });
   }
 
   render() {
-    const { estadisticas } = this.state;
-    console.log(estadisticas[0].count);
+    const { estadisticas_ } = this.state;
+  
+    const e_filtradas_P  = estadisticas_.filter((e)  => e.sentimentalismo.includes('POSITIVO'));
+    const e_filtradas_N  = estadisticas_.filter((e)  => e.sentimentalismo.includes('NEGATIVO'));
+    const e_filtradas_NE = estadisticas_.filter((e)  => e.sentimentalismo.includes('NEUTRO'));
+
+    console.log("P: " + e_filtradas_P)
+    console.log("N: " + e_filtradas_N)
+    console.log("NE: " + e_filtradas_NE)
+
 
     return (
       <div className="site-statistic-demo-card">
@@ -39,7 +55,7 @@ class Home extends Component {
                 title="Mensajes Positivos"
                 value={2}
                 precision={2}
-                valueStyle={{ color: "#3f8600" }}
+                valueStyle={{ color: "green" }}
                 prefix={<ArrowUpOutlined />}
                 suffix="%"
               />
@@ -51,7 +67,7 @@ class Home extends Component {
                 title="Mensajes Neutros"
                 value={0.25}
                 precision={2}
-                valueStyle={{ color: "#FAED27" }}
+                valueStyle={{ color: "orange" }}
                 prefix={<ArrowDownOutlined />}
                 suffix="%"
               />
@@ -61,18 +77,22 @@ class Home extends Component {
             <Card>
               <Statistic
                 title="Mensajes Negativos"
-                value={9.3}
+                value={0.25}
                 precision={2}
-                valueStyle={{ color: "#cf1322" }}
+                valueStyle={{ color: "red" }}
                 prefix={<ArrowDownOutlined />}
                 suffix="%"
               />
             </Card>
           </Col>
         </Row>
+      
       </div>
+
     );
   }
 }
 
 export default Home;
+
+///   <Mapa_general className="Mapa"></Mapa_general>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Table, Space, Button, Modal } from "antd";
 import { useHistory } from "react-router-dom";
-
 import "./dashboard-table.styles.css";
 
 
